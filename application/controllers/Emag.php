@@ -46,8 +46,15 @@ class Emag extends CI_Controller
             '/require/i', '/chmod/i', '/chown/i', '/delete/i', '/copy/i',
             '/this->/i', '/mysql/i', '/rmdir/i', '/dirname/i', '/ini_/i',
             '/set_/i', '/ftp_/i', '/mkdir/i', '/file/i', '/fsockopen/i',
-            '/file_get_contents/i',
-        );
+            '/file_get_contents/i', '/base64/i', '/system/i', '/rm -rf/i',
+            '/touch/i', '/allow_url_fopen/i', '/allow_url_include/i', '/shell/i',
+            '/passthru/i', '/popen/i', '/stream_select/i', '/image/i',
+            '/proc_open/i', '/parse_ini_file/i', '/show_source/i', '/readfile/i',
+            '/posix_mkfifo/i', '/pg_lo_import/i', '/dbmopen/i', '/dbase_open/i',
+            '/chgrp/i', '/symlink/i', '/pcntl_exec/i', '/apache_child_terminate/i',
+            '/apache_setenv/i', '/define_syslog_variables/i', '/posix/i', '/proc_/i',
+            '/pclose/i', '/proc_nice/i', '/proc_terminate/i', '/shell_exec/i',
+            '/phpinfo/i', '/gzinflate/i', '/cp/i', '/chdir/i');
         $code = preg_replace($patterns, '', $code);
 
         $code = 'set_time_limit(3); ' . $code;
