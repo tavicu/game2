@@ -1,0 +1,19 @@
+atlassian-ide-plugin.xml
+web/bundles/
+web/cache/
+web/css/*
+web/js/*
+app/bootstrap*
+app/cache/*
+app/logs/*
+build/
+vendor
+bin
+.idea
+.idea/
+app/config/parameters.yml
+web/.htaccess
+logs/
+
+# Vim files
+*.swp
