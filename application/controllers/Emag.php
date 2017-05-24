@@ -1,0 +1,77 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Emag extends CI_Controller
+{
+
+    private $notRepeatebleQuestions = 3;
+
+    public function index()
+    {
+        $this->load->view('emag_index');
+    }
+
+    public function status()
+    {
+        $this->load->view('status_question');
+    }
+
+    public function getQuestion($id = 0)
+    {
+        $this->load->model('emag_model');
+        $question = $this->emag_model->getQuestion($id);
+        $this->_setPrevQuestions($question[0]['id']);
+        echo json_encode($question[0]);
+    }
+
+    public function sendAnswer()
+    {
+        $id = (int)$this->input->post('id');
+        $code = $this->input->post('code');
+
+        $this->load->model('emag_model');
+        $question = $this->emag_model->getQuestion($id);
+        $this->emag_model->saveAnswers($id, $code);
+        $runCodeResult = $this->_runCode($code);
+
+        $ret = $runCodeResult == $question[0]['answer_return'] ? 'done' : 'fail';
+
+        echo json_encode($ret);
+    }
+
+    private function _runCode($code)
+    {
+        $patterns = array('/unlink/i', '/fopen/i', '/fwrite/i', '/eval/i',
+            '/curl/i', '/exec/i', '/ini_set/i', '/query/i', '/socket/i', '/include/i',
+            '/require/i', '/chmod/i', '/chown/i', '/delete/i', '/copy/i',
+            '/this->/i', '/mysql/i', '/rmdir/i', '/dirname/i', '/ini_/i',
+            '/set_/i', '/ftp_/i', '/mkdir/i', '/file/i', '/fsockopen/i',
+            '/file_get_contents/i',
+        );
+        $code = preg_replace($patterns, '', $code);
+
+        $code = 'set_time_limit(3); ' . $code;
+        ob_start();
+        @eval($code);
+        $response = ob_get_contents();
+        ob_end_clean();
+
+        if (error_get_last()) {
+            $response = 'fail';
+        }
+        return $response;
+    }
+
+    private function _setPrevQuestions($id)
+    {
+        if (empty($_SESSION['prev_questions'])) {
+            $_SESSION['prev_questions'][] = $id;
+        } else {
+            $_SESSION['prev_questions'][] = $id;
+            $reversedSes = array_reverse($_SESSION['prev_questions']);
+            $output = array_slice($reversedSes, 0, $this->notRepeatebleQuestions);
+            $_SESSION['prev_questions'] = array_reverse($output);
+        }
+    }
+}
+
