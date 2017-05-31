@@ -10,4 +10,4 @@ Database config file is added in gitignore so fell free to modify it for your en
 Database config file is in application/config/database.php .
 
 # Observation
-For any issues or questions please don't hesitate to contact HX TEAM (sd.team.hx@emag.ro) or Bogdan Stoica (bogdan.stoica@emag.ro).
+For any issues or questions please don't hesitate to contact Bogdan Stoica (bogdan.stoica@emag.ro), Octavian Ruda(octavian.ruda@emag.ro) or HX TEAM (sd.team.hx@emag.ro).
