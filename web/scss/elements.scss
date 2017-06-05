@@ -1,0 +1,32 @@
+input {
+    border: 1px solid $border-color;
+}
+
+button {
+    border-color: transparent;
+    outline: none;
+}
+
+.btn {
+    background-color: $primary-btn-color;
+    color: $secondary-text-color;
+
+    transition: opacity .2s ease;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.btn-secondary {
+    background-color: $secondary-btn-color;
+}
+
+.error {
+    display: none;
+    font-size: .7em;
+    color: $danger-color;
+
+    &.is-visible {
+        display: block;
+    }
+}

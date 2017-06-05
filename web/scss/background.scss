@@ -1,0 +1,43 @@
+.bg {
+    position: absolute;
+}
+
+.bg-hrz {
+    left: 0;
+    right: 0;
+    height: 2.5em;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+}
+
+.bg-vrt {
+    top: 2.5em;
+    bottom: 0;
+    width: 2.5em;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+}
+
+.bg-bottom {
+    bottom: 0;
+    background-image: url("../../images/bg-bottom.png");
+    background-position: bottom left;
+}
+
+.bg-top {
+    top: 0;
+    background-image: url("../../images/bg-top.png");
+    background-position: top left;
+}
+
+.bg-left {
+    left: 0;
+    background-image: url("../../images/bg-left.png");
+    background-position: top left;
+}
+
+.bg-right {
+    right: 0;
+    background-image: url("../../images/bg-right.png");
+    background-position: top right;
+}

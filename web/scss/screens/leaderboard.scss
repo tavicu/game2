@@ -1,0 +1,45 @@
+.leaderboard {
+    color: $secondary-text-color; 
+    margin: 0;
+
+    .headline {
+        font-size: 2em;
+    }
+}
+
+.leaderboard-box {
+    background: blue;
+    padding: 0 7em;
+    font-size: 1.25em;
+    background-color: #005367;
+    position: relative;
+    line-height: 1;
+
+    &:before, 
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:before {
+        background: url("../../images/leaderboard-top-left.png") no-repeat top left;
+        top: 0;
+        left: 0;
+    }
+
+    &:after {
+        background: url("../../images/leaderboard-bottom-right.png") no-repeat bottom right;
+        bottom: 0;
+        right: 0;
+    }
+
+    ol {
+        margin: 0;
+    }
+
+    .score {
+        color: #9cf3ff;
+    }
+}

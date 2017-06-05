@@ -1,0 +1,49 @@
+.user-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.user-details {
+    padding-left: 3em;
+    position: relative;
+    color: $secondary-text-color;
+}
+
+.user-icon {
+    font-size: 2em;
+}
+
+.username {
+    font-weight: 700;
+}
+
+.points {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: -.3em;
+
+    &:empty {
+        &:before {
+            content: "999";
+        }
+    }
+    &:after {
+        content: "points";
+        vertical-align: top;
+        display: inline-block;
+        font-size: .5em;
+        padding-top: .5em;
+        opacity: .8;
+        margin-left: .5em;
+    }
+}

@@ -1,0 +1,31 @@
+#editor.ace-terminal-theme,
+#editor.ace-terminal-theme .ace_gutter {
+    background: #581448;
+}
+#editor.ace-terminal-theme .ace_gutter-active-line {
+    background-color: #723864;
+}
+#editor.ace-terminal-theme .ace_marker-layer .ace_selection {
+    background: #614259;
+}
+
+#editor.ace-terminal-theme .ace_gutter {
+    width: 2em;
+    visibility: hidden;
+}
+
+#editor {
+    height: 400px;
+    font-size: .6em;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    font-family: $secondary-font;
+
+    @media screen and (max-height: 768px) {
+        height: 350px;
+    }
+
+    @media screen and (max-height: 680px) {
+        height: 250px;
+    } 
+}
