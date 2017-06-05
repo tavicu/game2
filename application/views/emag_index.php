@@ -7,52 +7,103 @@
 
     <title>eMAG</title>
     <link rel="shortcut icon" href="https://s0emagst.akamaized.net/layout/ro/favicon2.ico">
-    <link href="/web/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/web/dist/css/app.css" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-top-right"></div>
-    <div class="bg-left-bottom"></div>
-
-    <div id="container">
-        <div class="box box-white">
-            <img src="/web/images/logo.svg" class="logo" alt="eMAG">
-
-            <h2 class="lighten">Our elephpant tried to write some code but got stuck. Now he’s not so happy and he needs your help.</h2>
-            <p>Read the problems in the second window, write the code in the third one and see what happens. The elephpant prepared a reward for those who make it!<p>
-            <p>If you get stuck too, the eMAG crew will tell you what to do!</p>
-
-            <div class="animal"></div>
-            <div class="box-bg"></div>
-        </div>
-
-        <div class="box question-body"></div>
-
-        <div class="box box-code">
-            <div class="php-open">&lt;?php</div>
-            <div class="php-close">?&gt;</div>
-
-            <div class="overlay">
-                <div class="error">
-                    <span>Error</span>
-
-                    <div><button type="button" class="btn" onclick="resetQuestion()">Try again</button></div>
-                    <div><button type="button" class="btn" onclick="getQuestion()">Next question</button></div>
-                </div>
-                <div class="success">
-                    <span>Success</span>
-
-                    <div><button type="button" class="btn" onclick="getQuestion()">Next question</button></div>
-                </div>
-            </div>
-
-            <pre id="editor" contenteditable="true"></pre>
-
-            <button type="button" class="btn btn-red btn-submit" id="submit-btn" onclick="runCode()">Run code</button>
-        </div>
+    <div>
+        <div class="bg bg-hrz bg-top"></div>
+        <div class="bg bg-hrz bg-bottom"></div>
+        <div class="bg bg-vrt bg-left"></div>
+        <div class="bg bg-vrt bg-right"></div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <div class="container text-center" data-screen="categories"><!--
+     --><div class="user-panel text-right">
+            <div class="user-details text-left mar-b-xs">
+                <div class="user-icon fa fa-user inline--v-middle mar-r-xs"></div><!-- 
+             --><div class="inline--v-middle">
+                    <div class="username"></div>
+                    <div class="points"></div>
+                </div>
+            </div>
+            <button class="btn js-btn-exit text-center radius pad-hrz-sm">Exit challenge</button>
+        </div><!-- 
+     --><div class="content inline--v-middle">
+            <div>
+                <img src="/web/images/logo-devTalks.svg" class="inline--v-bottom pad-hrz-sm logo-img logo-devTalks">
+                <img src="/web/images/logo-emag.svg" class="inline--v-bottom pad-hrz-sm logo-img logo-emag mar-b-neg-xs">
+            </div>
+            <div class="screens">
+                <div class="screen categories">
+                    <div>
+                        <a href="#" class="box radius shadow font-bold inline--v-middle mar-hrz-sm mar-vrt-sm pad-hrz-xs pad-vrt-md btn-category js-btn-category checked" data-type="editor" data-syntax="scala">Scala/Java Syntax</a>
+                        <a href="#" class="box radius shadow font-bold inline--v-middle mar-hrz-sm mar-vrt-sm pad-hrz-xs pad-vrt-md btn-category js-btn-category" data-type="checkbox">Big Data Technologies</a>
+                        <a href="#" class="box radius shadow font-bold inline--v-middle mar-hrz-sm mar-vrt-sm pad-hrz-xs pad-vrt-md btn-category js-btn-category" data-type="editor" data-syntax="sql">SQL</a>
+                    </div>
+                    <div>
+                        <a href="#" class="box radius shadow font-bold inline--v-middle mar-hrz-sm mar-vrt-sm pad-hrz-xs pad-vrt-md btn-category js-btn-category" data-type="editor" data-syntax="php">PHP</a>
+                        <a href="#" class="box radius shadow font-bold inline--v-middle mar-hrz-sm mar-vrt-sm pad-hrz-xs pad-vrt-md btn-category js-btn-category" data-type="checkbox">Agile methodology</a>
+                        <a href="#" class="box radius shadow font-bold inline--v-middle mar-hrz-sm mar-vrt-sm pad-hrz-xs pad-vrt-md btn-category js-btn-category" data-type="checkbox">eMAG Technologies</a>
+                    </div>
+                </div>
+                <div class="screen login">
+                    <form class="box radius shadow inline--v-middle pad-hrz-xl pad-vrt-l js-login">
+                        <input type="text" class="font-light radius inline--v-middle mar-hrz-xs pad-hrz-sm pad-vrt-xs" placeholder="Username">
+                        <button class="font-light radius btn js-btn-start inline--v-middle mar-hrz-xs pad-hrz-sm pad-vrt-xs">Start challenge</button>
+                        <div class="error mar-t-sm mar-b-neg-sm"></div>
+                    </form>
+                </div>
+                <div class="screen question text-left">
+                    <div class="inline--v-top question-body font-bold"></div><!-- 
+                 --><div class="inline--v-top question-code">
+                        <pre id="editor" contenteditable="true"></pre>
+                    </div><!--
+                 --><div class="question-answers mar-t-sm mar-l-sm"></div>
+                    <button class="btn btn-secondary btn-next-question js-next-question radius pad-hrz-sm font-light">Next question</button>
+                </div>
+                <div class="screen leaderboard font-bold">
+                    <div class="headline mar-b-sm">Leaderboard</div>
+                    <div class="box leaderboard-box inline--v-top">
+                        <ol class="pad-hrz-l pad-vrt-l">
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">999</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">998</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">997</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                            <li>
+                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div><!-- 
+     --><div class="loader"></div><!--
+ --></div>
     <script src="/web/editor/ace.js"></script>
-    <script src="/web/javascript.js"></script>
+    <script src="/web/dist/js/app.js"></script>
 </body>
 </html>
