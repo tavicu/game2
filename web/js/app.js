@@ -2,6 +2,7 @@ import $ from "jquery";
 
 let isLoggedIn = false;
 let queuedEv;
+let editor;
 
 let $container = $(".container");
 let $questionBody = $(".question-body");
@@ -11,15 +12,18 @@ let $categoryBtn = $(".js-btn-category");
 let $startBtn = $(".js-btn-start");
 let $exitBtn = $(".js-btn-exit");
 let $userPanel = $(".user-panel");
-let $loginForm = $(".js-login")
+let $loginForm = $(".js-login");
+let $leaderboard = $(".leaderboard-box ol");
 
-let editor = ace.edit("editor");
-editor.setTheme("ace/theme/terminal");
-editor.getSession().setUseWrapMode(true);
-editor.setHighlightActiveLine(false);
-editor.setShowPrintMargin(false);
-editor.renderer.setScrollMargin(25, 25);
-editor.container.style.lineHeight = 1.5;
+if ($("#editor").length) {
+    editor = ace.edit("editor");
+    editor.setTheme("ace/theme/terminal");
+    editor.getSession().setUseWrapMode(true);
+    editor.setHighlightActiveLine(false);
+    editor.setShowPrintMargin(false);
+    editor.renderer.setScrollMargin(25, 25);
+    editor.container.style.lineHeight = 1.5;
+}
 
 $nextQuestion.on("click", onNextQuestionClick);
 $categoryBtn.on("click", onCategoryBtnClick);
@@ -167,6 +171,31 @@ function getCheckboxQuestion(syntax) {
         });
     });
 }
+
+function getLeaderboard() {
+    fakeAjax("", (data) => {
+        const leaderboard = [
+            {score: 999, name: "Ionut Popescu"},
+            {score: 998, name: "Ionut Popescu"},
+            {score: 997, name: "Ionut Popescu"},
+            {score: 996, name: "Ionut Popescu"},
+            {score: 995, name: "Ionut Popescu"},
+            {score: 994, name: "Ionut Popescu"},
+            {score: 993, name: "Ionut Popescu"},
+            {score: 992, name: "Ionut Popescu"},
+            {score: 991, name: "Ionut Popescu"},
+            {score: 990, name: "Ionut Popescu"},
+        ];
+
+        $leaderboard.html("");
+        for (let idx in leaderboard) {
+            let person = leaderboard[idx];
+            $leaderboard.append(`<li><div class="score inline--v-middle mar-hrz-md">${person.score}</div>${person.name}</li>`);
+        }
+    });
+}
+
+if ($leaderboard.length) getLeaderboard();
 
 // ajax helper
 function fakeAjax(url, cb) {

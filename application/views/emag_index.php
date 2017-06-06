@@ -62,43 +62,6 @@
                  --><div class="question-answers mar-t-sm mar-l-sm"></div>
                     <button class="btn btn-secondary btn-next-question js-next-question radius pad-hrz-sm font-light">Next question</button>
                 </div>
-                <div class="screen leaderboard font-bold">
-                    <div class="headline mar-b-sm">Leaderboard</div>
-                    <div class="box leaderboard-box inline--v-top">
-                        <ol class="pad-hrz-l pad-vrt-l">
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">999</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">998</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">997</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                            <li>
-                                <div class="score inline--v-middle mar-hrz-md">996</div> Ovidiu Hatmanu
-                            </li>
-                        </ol>
-                    </div>
-                </div>
             </div>
         </div><!-- 
      --><div class="loader"></div><!--

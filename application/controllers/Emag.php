@@ -16,6 +16,11 @@ class Emag extends CI_Controller
         $this->load->view('status_question');
     }
 
+    public function leaderboard()
+    {
+        $this->load->view('leaderboard');
+    }
+
     public function getQuestion($id = 0)
     {
         $this->load->model('emag_model');
