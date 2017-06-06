@@ -56,7 +56,7 @@
                 </div>
                 <div class="screen question text-left">
                     <div class="inline--v-top question-body font-bold"></div><!-- 
-                 --><div class="inline--v-top question-code">
+                 --><div class="inline--v-top question-code pad-l-sm">
                         <pre id="editor" contenteditable="true"></pre>
                     </div><!--
                  --><div class="question-answers mar-t-sm mar-l-sm"></div>

@@ -15,17 +15,10 @@
 }
 
 #editor {
-    height: 400px;
+    margin: 0;
     font-size: .6em;
     border-radius: 5px;
     border: 1px solid #fff;
     font-family: $secondary-font;
 
-    @media screen and (max-height: 768px) {
-        height: 350px;
-    }
-
-    @media screen and (max-height: 680px) {
-        height: 250px;
-    } 
 }

@@ -120,7 +120,7 @@ function validateQuestion(type, syntax) {
         value = $questionAnswers.find("input:checked").val();
     }
     return fakeAjax("", (data) => {
-        if (Math.random() > .5) {
+        if (Math.random() > .2) {
             $userPanel.find(".points").html(+$userPanel.find(".points").html() + 5);
         }
     });
@@ -129,7 +129,7 @@ function validateQuestion(type, syntax) {
 
 function validateUsername(username) {
     return fakeAjax("", (data) => {
-        return Math.random() > .5
+        return Math.random() > .2
     });
 }
 

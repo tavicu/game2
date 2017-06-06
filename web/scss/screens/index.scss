@@ -33,6 +33,18 @@
     }
 
     &[data-screen="editor"] {
+        .content {
+            height: 60%;
+            margin-top: 5%;
+        }
+
+        .screens,
+        .screen.question,
+        .question-code,
+        #editor {
+            height: 100%;
+        }
+
         .screen.question {
             display: block;
 
