@@ -4,44 +4,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Emag extends CI_Controller
 {
 
-    private $notRepeatebleQuestions = 3;
-
     public function index()
     {
-        $this->load->view('emag_index');
+        echo 'No access here';
     }
 
     public function status()
     {
-        $this->load->view('status_question');
-    }
-
-    public function leaderboard()
-    {
-        $this->load->view('leaderboard');
-    }
-
-    public function getQuestion($id = 0)
-    {
         $this->load->model('emag_model');
-        $question = $this->emag_model->getQuestion($id);
-        $this->_setPrevQuestions($question[0]['id']);
-        echo json_encode($question[0]);
+        $highscore = $this->emag_model->getLeaderBoard();
+        echo json_encode($highscore);
+        exit;
     }
 
-    public function sendAnswer()
+
+    public function registerUser()
+    {
+        $user = $this->input->post('user');
+        $this->load->model('emag_model');
+
+        if(ctype_alpha($user)){
+            if($this->emag_model->getUserExistance($user) == 0){
+                echo json_encode(array('id'=>$this->emag_model->insertUser($user), 'user'=>$user));
+                exit;
+            } else {
+                echo json_encode(array('Error: User already exists'));
+                exit;
+            }
+        } else {
+            echo json_encode(array('Error: User must be only letters'));
+            exit;
+        }
+    }
+
+
+    public function getQuestions(int $gameId)
+    {
+        if(!is_int($gameId) || $gameId < 0 || $gameId > 6){
+            echo json_encode(array('Error: No game for this id'));
+            exit;
+        }
+
+        $this->load->model('emag_model');
+
+        switch ($gameId){
+            case 1:
+                $questions = $this->emag_model->getQuestions($gameId, array('id', 'game_id', 'title', 'code', 'option1', 'option2', 'option3', 'option4', 'answer'));
+                break;
+            case 2:
+                $questions = $this->emag_model->getQuestions($gameId, array('id', 'game_id', 'title', 'option1', 'option2', 'option3', 'option4', 'answer'));
+                break;
+            case 3:
+                $questions = $this->emag_model->getQuestions($gameId, array('id', 'game_id', 'title', 'code', 'option1', 'option2', 'option3', 'option4', 'answer'));
+                break;
+            case 4:
+                $questions = $this->emag_model->getQuestions($gameId, array('id', 'game_id', 'title', 'code'));
+                break;
+            case 5:
+                $questions = $this->emag_model->getQuestions($gameId, array('id', 'game_id', 'title', 'option1', 'option2', 'option3', 'answer'));
+                break;
+            case 6:
+                $questions = $this->emag_model->getQuestions($gameId, array('id', 'game_id', 'title', 'option1', 'option2', 'option3', 'answer'));
+                break;
+        }
+
+        echo json_encode($questions);
+        exit;
+    }
+
+
+    public function updateScore()
+    {
+        $userId = $this->input->post('id');
+        $this->load->model('emag_model');
+        $this->emag_model->updateUser($userId);
+        $ret = $this->emag_model->getUserScore($userId);
+
+        echo json_encode($ret);
+        exit;
+    }
+
+    public function sendPHPAnswer()
     {
         $id = (int)$this->input->post('id');
         $code = $this->input->post('code');
 
         $this->load->model('emag_model');
-        $question = $this->emag_model->getQuestion($id);
-        $this->emag_model->saveAnswers($id, $code);
+        $question = $this->emag_model->getPHPQuestion($id);
+
         $runCodeResult = $this->_runCode($code);
 
-        $ret = $runCodeResult == $question[0]['answer_return'] ? 'done' : 'fail';
+        $ret = $runCodeResult == $question[0]['run_code_answer'] ? 'success' : 'fail';
 
-        echo json_encode($ret);
+        echo json_encode(array($ret));
     }
 
     private function _runCode($code)
@@ -74,16 +129,5 @@ class Emag extends CI_Controller
         return $response;
     }
 
-    private function _setPrevQuestions($id)
-    {
-        if (empty($_SESSION['prev_questions'])) {
-            $_SESSION['prev_questions'][] = $id;
-        } else {
-            $_SESSION['prev_questions'][] = $id;
-            $reversedSes = array_reverse($_SESSION['prev_questions']);
-            $output = array_slice($reversedSes, 0, $this->notRepeatebleQuestions);
-            $_SESSION['prev_questions'] = array_reverse($output);
-        }
-    }
 }
 
