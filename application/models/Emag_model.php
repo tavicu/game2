@@ -7,7 +7,7 @@ class Emag_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->order_by('highscore', 'desc');
-        $this->db->limit(20);
+        $this->db->limit(10);
         $query = $this->db->get('leaderboard');
         return $query->result_array();
     }

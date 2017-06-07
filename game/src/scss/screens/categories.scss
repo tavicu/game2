@@ -1,0 +1,33 @@
+.btn-category {
+    text-decoration: none;
+    color: $primary-text-color;
+    width: 12.5em;
+    line-height: 1.6;
+    transition: opacity .2s ease;
+    opacity: 1;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &.checked {
+        position: relative;
+        pointer-events: none;
+
+        &:after {
+            content: "\f00c";
+            font-family: "FontAwesome";
+            position: absolute;
+            width: 1.4em;
+            height: 1.4em;
+            background: $box-bg-color;
+            border-radius: 50%;
+            font-size: 1.5em;
+            bottom: 0;
+            right: 0;
+            line-height: 1.4em;
+            margin: 0 -0.7em -0.7em 0;
+            color: $confirm-color;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import "node_modules/normalize.scss/normalize.scss";
+@import "./fonts.scss";
+
+$main-font: "CoText", sans-serif;
+$secondary-font: "AndaleMono", sans-serif;
+$primary-bg-color: #1c95b3;
+
+$primary-text-color: #5a5a5a;
+$secondary-text-color:  #fff;
+
+$primary-btn-color: #090;
+$secondary-btn-color: #2099b6;
+
+$border-color: $primary-text-color;
+$box-bg-color: $secondary-text-color;
+
+$confirm-color: $primary-btn-color;
+$danger-color: red;
+
+@import "./layout.scss";
+@import "./elements.scss";
+@import "./background.scss";
+@import "./user-panel.scss";
+@import "./screens/index.scss";
+@import "./margins.scss";
+@import "./paddings.scss";
+@import "./editor.scss";
+
+.logo-emag {
+    width: 16em;
+    box-sizing: content-box;
+}
+.logo-devTalks {
+    width: 11em;
+    box-sizing: content-box;
+}

@@ -1,0 +1,140 @@
+.loader {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    background: url("./images/loader.svg") no-repeat center center / contain;
+
+    opacity: 0;
+    visibility: hidden;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .2s ease .1s, visibility .2s ease .1s;
+}
+
+.screen {
+    margin-top: 4em;
+    display: none;
+    transition: opacity .2s ease .1s;
+}
+
+.container {
+    &[data-screen="categories"] {
+        .screen.categories {
+            display: block;
+        }
+    }
+
+    &[data-screen="login"] {
+        .screen.login {
+            display: block;
+        }
+    }
+
+    &[data-screen="editor"] {
+        .content {
+            height: 60%;
+            margin-top: 5%;
+        }
+
+        .screens,
+        .screen.question,
+        .question-code,
+        #editor {
+            height: 100%;
+        }
+
+        .screen.question {
+            display: block;
+
+            .question-body {
+                font-size: .85em;
+            }
+
+            .question-body,
+            .question-code {
+                width: 50%;
+            }
+            .question-answers {
+                display: none;
+            }
+        }
+    }
+
+    &[data-screen="checkbox"] {
+        .screen.question {
+            display: inline-block;
+
+            .question-body {
+                width: 100%;
+            }
+            .question-code {
+                display: none;
+            }
+            .question-answers {
+                display: block;
+            }
+        }
+    }
+
+    &[data-screen="editor"],
+    &[data-screen="checkbox"] {
+        .logo-img {
+            position: absolute;
+            left: 0;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .logo-devTalks {
+            top: 0;
+        }
+
+        .logo-emag {
+            bottom: 0;
+        }
+
+        .btn-next-question {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    &[data-screen="leaderboard"] {
+        .logo-img {
+            position: absolute;
+            left: 0;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .logo-devTalks {
+            bottom: 0;
+        }
+
+        .logo-emag {
+            top: 0;
+        }
+        .screen.leaderboard {
+            display: block;
+        }
+    }
+
+    &.loading {
+        .loader {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .screen {
+            opacity: .6;
+        }
+    } 
+}
+
+@import "categories.scss";
+@import "login.scss";
+@import "question.scss";
+@import "leaderboard.scss";

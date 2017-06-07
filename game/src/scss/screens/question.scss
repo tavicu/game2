@@ -1,0 +1,37 @@
+.question {
+    color: $secondary-text-color;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.question-body {
+    .checkboxes-wrapper {
+        padding-top: 1.5em;
+    }
+
+    &:not(.no-title) {
+        .checkboxes-wrapper {
+            font-size: .8em;
+        }
+    }
+}
+
+.checkboxes-wrapper {
+    label {
+        display: block;
+    }
+
+    .checkbox-placeholder {
+        width: 1.2em;
+        height: 1.2em;
+        border: .2em solid $secondary-text-color;
+    }
+
+    input {
+        display: none;
+
+        &:checked + .checkbox-placeholder {
+            background: $primary-bg-color;
+        }
+    }
+}
