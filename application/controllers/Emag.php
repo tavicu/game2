@@ -106,6 +106,10 @@ class Emag extends CI_Controller
 
         $ret = $runCodeResult == $question[0]['run_code_answer'] ? 'success' : 'fail';
 
+        if($ret == 'fail'){
+            show_error($e->getMessage(), 500, 'Fail');
+        }
+
         echo json_encode($ret);
     }
 
