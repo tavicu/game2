@@ -682,6 +682,10 @@ button {
 .question-body:not(.no-title) .checkboxes-wrapper {
   font-size: .8em; }
 
+.question-body.long-question {
+  font-size: 17px !important;
+  line-height: 20px; }
+
 .checkboxes-wrapper label {
   display: block; }
 

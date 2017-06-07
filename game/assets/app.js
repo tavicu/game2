@@ -12380,6 +12380,7 @@ var game = {
     getQuestions: function getQuestions(category) {
         // return fakeAjax("getQuestion", category).then( (data) => {
         return (0, _ajaxHelper.ajaxHelper)("http://devtalks.emag.ro/index.php?emag/getQuestions/" + category, "GET").then(function (data) {
+            if (category == 3) data[2].longQuestion = true;
             question.currentCategory = data;
             question.currentIndex = 0;
             question.change();
@@ -12428,6 +12429,12 @@ var question = {
             $questionBody.addClass("no-title");
         } else {
             $questionBody.removeClass("no-title");
+        }
+
+        if (q.longQuestion) {
+            $questionBody.addClass("long-question");
+        } else {
+            $questionBody.removeClass("long-question");
         }
 
         var type = void 0;
