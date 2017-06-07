@@ -39,15 +39,6 @@ CREATE TABLE IF NOT EXISTS `leaderboard` (
 
 -- Dumping data for table game.leaderboard: ~8 rows (approximately)
 /*!40000 ALTER TABLE `leaderboard` DISABLE KEYS */;
-INSERT INTO `leaderboard` (`id`, `name`, `highscore`) VALUES
-	(1, 'Bogdan', 10),
-	(2, 'Ovidiu', 20),
-	(3, 'Octavian', 5),
-	(4, 'Ciprian', 0),
-	(5, 'Daniel', 120),
-	(6, 'Cristi', 0),
-	(7, 'Cristi4', 0),
-	(8, 'Bartolomeu', 0);
 /*!40000 ALTER TABLE `leaderboard` ENABLE KEYS */;
 
 -- Dumping structure for table game.questions
@@ -73,11 +64,11 @@ INSERT INTO `questions` (`id`, `game_id`, `title`, `option1`, `option2`, `option
 	(3, 5, '<h2>What does NOT belong to cornerstones of the agile manifesto?</h2>', 'Responding to change over following a plan', 'Working software over comprehensive documentation', 'Processes over people', '', 3, NULL, NULL),
 	(4, 5, '<h2>How is the Product Backlog ordered by:</h2>', 'Small items at the top to large items at the bottom', 'Safer items at the top to riskier items at the bottom', 'Whatever the Product Owner deems most appropriate', '', 3, NULL, NULL),
 	(5, 5, '<h2>What is the recommended size for a Development Team (within the Scrum Team)?</h2>', 'At least 7', '3 to 9', '7 plus or minus 2', '', 2, NULL, NULL),
-	(6, 6, '<h2>Which concept is NOT defined in the Scrum Framework?</h2>', 'Scrum Master', 'Project Manager', 'Daily Scrum', '', 2, NULL, NULL),
-	(7, 6, '<h2>Where are the customer requirements stored?</h2>', 'In the Product Backlog', 'In the Sprint Backlog', 'Nowhere. The Scrum Product Owner knows them', '', 1, NULL, NULL),
-	(8, 6, '<h2>What does NOT belong to cornerstones of the agile manifesto?</h2>', 'Responding to change over following a plan', 'Working software over comprehensive documentation', 'Processes over people', '', 3, NULL, NULL),
-	(9, 6, '<h2>How is the Product Backlog ordered by:</h2>', 'Small items at the top to large items at the bottom', 'Safer items at the top to riskier items at the bottom', 'Whatever the Product Owner deems most appropriate', '', 3, NULL, NULL),
-	(10, 6, '<h2>What is the recommended size for a Development Team (within the Scrum Team)?</h2>', 'At least 7', '3 to 9', '7 plus or minus 2', '', 2, NULL, NULL),
+	(6, 6, '<h2>Who develops the eMAG internal apps?</h2>', 'Outsourced teams', 'Their own developers', 'They don\'t have any internal apps', '', 2, NULL, NULL),
+	(7, 6, '<h2>What technologies does eMAG use?</h2>', 'PHP, Symfony, JavaScript, SQL, Cassandra', 'They use none, because they outsource the development', 'PHP, Python, Git, ASP.NET', '', 1, NULL, NULL),
+	(8, 6, '<h2>How many people are in the Platforms & Technology team of eMAG?</h2>', 'Plus 200', '10', 'Plus 600', '', 3, NULL, NULL),
+	(9, 6, '<h2>Why does eMAG use Big Data?</h2>', 'Because they like Big Data and they cannot lie', 'Because they base their business decisions on the info Big Data reveals', 'Because in Big Data they trust', '', 2, NULL, NULL),
+	(10, 0, '<h2>What is the recommended size for a Development Team (within the Scrum Team)?</h2>', 'At least 7', '3 to 9', '7 plus or minus 2', '', 2, NULL, NULL),
 	(11, 1, '<h2>What’s the most efficient way to append the character “c” to: Seq(“a”, “b”)</h2>', 'Seq(“a”, “b”) += “c”', 'Seq(“a”, “b”) ++ Seq(“c”)', 'Seq(“a”, “b”) += Seq(“c”)', 'Seq(“a”, “b”) :+ “c”', 4, NULL, NULL),
 	(12, 1, '', 'Prints “true”', 'Returns an error for the second function, no return clause', 'Returns an error, the first function is not correctly defined', 'Prints “false”', 1, 'var inm = (x: Int, y:Int) => x*y\r\ndef mul  (x: Int, y: Int): Int = {\r\n                var inm = x*y\r\n                inm\r\n}\r\nprintln((inm(3, 4) == mul(2, 6)))', NULL),
 	(13, 1, '', 'Prints the string “foo bar”', 'Error. Fix is in the line: val str = ""', 'Error. Fix is in the line: str= x + " " + y', 'Error. Fix is in the line: val c = func(a, b)', 2, 'var a = "foo"\r\nvar b = "bar"\r\ndef func (x: String, y:String): String = {\r\n    val str = ""\r\n    str= x + " " + y\r\n    str\r\n}\r\nval c = func(a, b)\r\nprintln(c)', NULL),
