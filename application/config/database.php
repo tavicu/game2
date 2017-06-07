@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'emag',
+	'hostname' => 'eos-all6081-ro-dev.mwp2.c.emag.network',
+	'username' => 'eos_emag',
+	'password' => 'game',
+	'database' => 'game',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
