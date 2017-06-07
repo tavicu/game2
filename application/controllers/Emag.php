@@ -106,7 +106,7 @@ class Emag extends CI_Controller
 
         $ret = $runCodeResult == $question[0]['run_code_answer'] ? 'success' : 'fail';
 
-        echo json_encode(array($ret));
+        echo json_encode($ret);
     }
 
     private function _runCode($code)
