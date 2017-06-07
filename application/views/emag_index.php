@@ -59,7 +59,7 @@
                  --><div class="inline--v-top question-code pad-l-sm">
                         <pre id="editor" contenteditable="true"></pre>
                     </div><!--
-                 --><div class="question-answers mar-t-sm mar-l-sm"></div>
+                 --><div class="question-answers checkboxes-wrapper mar-t-sm mar-l-sm"></div>
                     <button class="btn btn-secondary btn-next-question js-next-question radius pad-hrz-sm font-light">Next question</button>
                 </div>
             </div>
