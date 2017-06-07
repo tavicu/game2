@@ -11,6 +11,8 @@ class Emag extends CI_Controller
 
     public function status()
     {
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
         $this->load->model('emag_model');
         $highscore = $this->emag_model->getLeaderBoard();
         echo json_encode($highscore);
@@ -20,6 +22,8 @@ class Emag extends CI_Controller
 
     public function registerUser()
     {
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
         $user = $this->input->post('user');
         $this->load->model('emag_model');
 
@@ -40,6 +44,8 @@ class Emag extends CI_Controller
 
     public function getQuestions(int $gameId)
     {
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
         if(!is_int($gameId) || $gameId < 0 || $gameId > 6){
             echo json_encode(array('Error: No game for this id'));
             exit;
@@ -75,6 +81,8 @@ class Emag extends CI_Controller
 
     public function updateScore()
     {
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
         $userId = $this->input->post('id');
         $this->load->model('emag_model');
         $this->emag_model->updateUser($userId);
@@ -86,6 +94,8 @@ class Emag extends CI_Controller
 
     public function sendPHPAnswer()
     {
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
         $id = (int)$this->input->post('id');
         $code = $this->input->post('code');
 
