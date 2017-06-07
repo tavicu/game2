@@ -32,11 +32,11 @@ class Emag extends CI_Controller
                 echo json_encode(array('id'=>$this->emag_model->insertUser($user), 'user'=>$user));
                 exit;
             } else {
-                echo json_encode(array('Error: User already exists'));
+                show_error($e->getMessage(), 500, 'Error: User already exists');
                 exit;
             }
         } else {
-            echo json_encode(array('Error: User must be only letters'));
+            show_error($e->getMessage(), 500, 'Error: User must be only letters');
             exit;
         }
     }
