@@ -85,7 +85,10 @@ class Emag extends CI_Controller
         header('Access-Control-Allow-Origin: *');
         $userId = $this->input->post('id');
         $this->load->model('emag_model');
-        $this->emag_model->updateUser($userId);
+        $currentScore = $this->emag_model->getUserScore($userId);
+        if($currentScore[0]['highscore'] < 251) {
+            $this->emag_model->updateUser($userId);
+        }
         $ret = $this->emag_model->getUserScore($userId);
 
         echo json_encode($ret);
